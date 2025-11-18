@@ -4,39 +4,36 @@
     <title>Journal Roman-Alphabetic Reference Style</title>
     <id>http://www.zotero.org/styles/journal-roman-alphabetic</id>
     <link href="http://www.zotero.org/styles/journal-roman-alphabetic" rel="self"/>
-    
-    <category citation-format="numeric"/>
     <updated>2025-11-18T00:00:00Z</updated>
   </info>
 
   <!-- Bibliography: Roman-numbered entries placed BEFORE each reference.
-       Entries sorted alphabetically by author family name, then year, then title. -->
+       Sorted alphabetically by author family name, then year, then title. -->
   <bibliography>
     <sort>
-      <key variable="author"/>
-      <key variable="issued"/>
-      <key variable="title"/>
+      <key variable="author" sort="ascending"/>
+      <key variable="issued" sort="ascending"/>
+      <key variable="title" sort="ascending"/>
     </sort>
 
-    <layout suffix="
-">
+    <layout suffix="\n">
       <!-- Roman numeral at the start, uppercase, followed by a dot and space -->
       <text variable="citation-number" form="roman" text-case="uppercase" suffix=". "/>
 
       <!-- Authors: Family, Given (comma separated). Multiple authors separated by comma. -->
       <names variable="author" delimiter=", ">
-        <name name-as-sort-order="all" and="none" initialize-with=""/>
+        <name name-as-sort-order="all" and="none" initialize-with=". "/>
       </names>
 
       <!-- Year in parentheses immediately after authors, then a period and space -->
-      <date variable="issued" prefix=" (" suffix="). " form="text">
+      <date variable="issued" prefix="(" suffix="). " form="text">
         <date-part name="year"/>
       </date>
 
       <!-- Title then period and space -->
       <text variable="title" suffix=". "/>
 
-      <!-- Journal article: Journal (italic), vol(issue), pages. -->
+      <!-- Journal article: Journal (italic), volume(issue):pages. -->
       <group>
         <text variable="container-title" font-style="italic"/>
         <text variable="volume" prefix=", "/>
@@ -52,12 +49,11 @@
         <text value=". "/>
       </group>
 
-      <!-- DOI (preferred) or URL if present -->
+      <!-- DOI or URL (DOI preferred) -->
       <group>
-        <text variable="DOI" prefix="DOI: "/>
-        <text variable="URL" prefix=""/>
+        <text variable="DOI" prefix="DOI: " />
+        <text variable="URL" prefix="" />
       </group>
-
     </layout>
   </bibliography>
 
@@ -67,5 +63,4 @@
       <text variable="citation-number" form="roman" text-case="uppercase"/>
     </layout>
   </citation>
-
 </style>
